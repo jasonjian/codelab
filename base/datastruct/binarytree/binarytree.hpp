@@ -20,7 +20,7 @@ public:
 class BinaryTree {
 
 public:
-    bool insertNodeWithUserData( const UserData& pVal);
+    bool insertNodeWithUserData( UserData& pData, TreeNode* pCurrNode);
     bool deleteNodeWithUserData(const UserData& pVal);
     bool preOrderTranversal(TreeNode* pNode)const;
     bool inOrderTranversal(TreeNode* pNode)const;
