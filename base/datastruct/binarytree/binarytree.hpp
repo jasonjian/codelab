@@ -2,35 +2,41 @@
 //
 #include <userdata.hpp>
 
-#pragra once
+#pragma once
 
-class node{
+class TreeNode{
+
+public:
+    UserData& getData(){return mData;}
+
+public:
+    TreeNode* mLeft;
+    TreeNode* mRight;
+    TreeNode* mParent;
     UserData mData;
-    node* mLeft;
-    node* mRight;
 };
 
 
 class BinaryTree {
 
 public:
-    bool preOrderTranversal()const;
-    bool inOrderTranversal()const;
-    bool postOrderTranversal()const;
+    bool insertNodeWithUserData( const UserData& pVal);
+    bool deleteNodeWithUserData(const UserData& pVal);
+    bool preOrderTranversal(TreeNode* pNode)const;
+    bool inOrderTranversal(TreeNode* pNode)const;
+    bool postOrderTranversal(TreeNode* pNode)const;
     bool isFullBinaryTree()const;
+
+    friend std::ostream& operator<<(std::ostream& pStream, BinaryTree& ptree);
 
 private:
     BinaryTree() = default;
-    //    BinaryTree(BinaryTree pVal);
-    //    BinaryTree(const BinaryTree& pVal);
-    //    BinaryTree(const BinaryTree&& pVal);
+    BinaryTree(BinaryTree& pVal) = delete;
+    BinaryTree(const BinaryTree& pVal) = delete;
+    BinaryTree(const BinaryTree&& pVal) = delete;
     ~BinaryTree() = default;
-
     BinaryTree operator=(const BinaryTree& pVal);
 
 private:
-
-    node* mRoot;
-
-
+    TreeNode* mRoot;
 };

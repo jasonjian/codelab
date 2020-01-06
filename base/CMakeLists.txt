@@ -21,15 +21,16 @@ configure_file(JasonLabConfig.h.in JasonLabConfig.h)
 include_directories(${REPO_DIR})
 include_directories(${ALGORITHM_DIR})
 include_directories(${DATASTRUCT_DIR})
+include_directories(${USERDATA_DIR})
 include_directories(${UTILS_DIR})
 
 add_subdirectory(algorithm)
-add_subdirectory(datastruct)
 add_subdirectory(userdata)
+add_subdirectory(datastruct)
 add_subdirectory(utils)
 
 #add the executable
-add_executable(JasonLab main.cpp)
+add_executable(codelab main.cpp)
 
 #message("${PROJECT_BINARY_DIR}")
 
@@ -38,9 +39,9 @@ add_executable(JasonLab main.cpp)
 #  "${PROJECT_SOURCE_DIR}"
 #  )
 
-target_link_libraries(JasonLab PUBLIC ${BINARY_TREE_LIB})
+target_link_libraries(codelab PUBLIC ${BINARY_TREE_LIB})
 
-target_include_directories(JasonLab PUBLIC
+target_include_directories(codelab PUBLIC
   "${PROJECT_BINARY_DIR}"
   )
 
