@@ -1,0 +1,4 @@
+#!/bin/bash
+cmake -DCMAKE_C_COMPILER='/usr/bin/clang' -B build -S base 
+cd /Users/jasonj/Dropbox/code/build
+make CC='/usr/bin/clang'
