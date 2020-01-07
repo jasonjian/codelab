@@ -20,21 +20,24 @@ public:
 class BinaryTree {
 
 public:
-    bool insertNodeWithUserData( UserData& pData, TreeNode* pCurrNode);
+    bool insertNodeWithUserData( UserData& pData, TreeNode* pCurrNode)const;
+    bool insertNodeWithUserDataRecursion( UserData& pData, TreeNode* pCurrNode);
     bool deleteNodeWithUserData(const UserData& pVal);
     bool preOrderTranversal(TreeNode* pNode)const;
     bool inOrderTranversal(TreeNode* pNode)const;
     bool postOrderTranversal(TreeNode* pNode)const;
     bool isFullBinaryTree()const;
+    void generateTestData()const;
 
     friend std::ostream& operator<<(std::ostream& pStream, BinaryTree& ptree);
 
-private:
     BinaryTree() = default;
+    ~BinaryTree() = default;
+    
+private:
     BinaryTree(BinaryTree& pVal) = delete;
     BinaryTree(const BinaryTree& pVal) = delete;
     BinaryTree(const BinaryTree&& pVal) = delete;
-    ~BinaryTree() = default;
     BinaryTree operator=(const BinaryTree& pVal);
 
 private:

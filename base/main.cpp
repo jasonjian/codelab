@@ -1,13 +1,22 @@
 #include <iostream>
-#include "JasonLabConfig.h"
+#include "CodeLabConfig.h"
+#include <binarytree/binarytree.hpp>
+
 using namespace std;
+
+template<class T>
+void generateTestData(T& pData)
+{
+    pData.generateTestData();
+}
 
 int main ( int argc, char** argv )
 {
     (void)argc;
     (void)argv;
-    cout<<"we have "<< argc << " parameters."<<std::endl;
-    cout<<"CODELAB_VERSION_MAJOR : "<<CODELAB_VERSION_MAJOR<<endl;
-    cout<<"CODELAB_VERSION_MINOR : "<<CODELAB_VERSION_MINOR<<endl;
+
+    BinaryTree lBinaryTree;
+    generateTestData(lBinaryTree);
+    std::cout<<lBinaryTree;
     return 0;
 }
