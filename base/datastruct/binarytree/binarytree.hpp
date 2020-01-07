@@ -28,11 +28,12 @@ public:
     bool postOrderTranversal(TreeNode* pNode)const;
     bool isFullBinaryTree()const;
     void generateTestData()const;
+    void tranverse()const;
 
     friend std::ostream& operator<<(std::ostream& pStream, BinaryTree& ptree);
 
-    BinaryTree() = default;
-    ~BinaryTree() = default;
+    BinaryTree();
+    ~BinaryTree();
     
 private:
     BinaryTree(BinaryTree& pVal) = delete;

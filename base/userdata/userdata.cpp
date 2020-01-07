@@ -19,12 +19,14 @@ bool UserData::operator <(const UserData& pData)const
 
 bool UserData::operator > (const UserData& pData)const
 {
+    std::cout<<"pData = "<< pData;
+    std::cout<<"*this = "<< *this;
     return !(pData < *this);
 }
 
-
-std::ostream& operator<<(std::ostream& pStream, UserData& pData)
+std::ostream& operator<<(std::ostream& pStream, const UserData& pData)
 {
     pStream<<pData.getId();
     return pStream;
 }
+

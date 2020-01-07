@@ -13,4 +13,4 @@ private:
     int mId;
 };
 
-std::ostream& operator<<(std::ostream& pStream, UserData& pData);
+std::ostream& operator<<(std::ostream& pStream, const UserData& pData);

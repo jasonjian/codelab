@@ -18,6 +18,19 @@
 
  */
 
+BinaryTree::BinaryTree()
+{
+    UserData lUserData;
+    lUserData.setId(8888);
+    mRoot = new(TreeNode);
+    mRoot->mData = lUserData;
+}
+
+BinaryTree::~BinaryTree()
+{
+    delete mRoot;
+}
+
 bool BinaryTree::insertNodeWithUserDataRecursion( UserData& pData, TreeNode* pCurrNode)
 {
     TreeNode* lNewTreeNodePtr = nullptr;
@@ -80,12 +93,14 @@ bool BinaryTree::insertNodeWithUserData( UserData& pData, TreeNode* pCurrNode)co
         return false;
     }
 
+    std::cout<<"pData = "<< pData<<std::endl;
+    
     while (pCurrNode != nullptr){
-
         if(pData < pCurrNode->getData()){
             if(nullptr == pCurrNode->mLeft){
                 try{
                     lNewTreeNodePtr = new(TreeNode);
+                    lNewTreeNodePtr->mData = pData;
                 }catch(...){
                     std::cout<< "exception happen when try to create the new node.";
                     return false;
@@ -96,12 +111,11 @@ bool BinaryTree::insertNodeWithUserData( UserData& pData, TreeNode* pCurrNode)co
                 pCurrNode = pCurrNode->mLeft;
                 continue;
             }
-        }
-        
-        else if(pData > pCurrNode->getData()){
+        } else if(pData > pCurrNode->getData()){
             if(nullptr == pCurrNode->mRight){
                 try{
                     lNewTreeNodePtr = new(TreeNode);
+                    lNewTreeNodePtr->mData = pData;
                 }catch(...){
                     std::cout<< "exception happen when try to create the new node.";
                     return false;
@@ -114,7 +128,7 @@ bool BinaryTree::insertNodeWithUserData( UserData& pData, TreeNode* pCurrNode)co
         }
 
         else{
-            std::cout<< "should not come here.";
+            std::cout<< "should not come here. UserData = "<< pData<<", pCurrNode->data = "<< pCurrNode->getData() << std::endl;
             return false;
         }
     }
@@ -131,7 +145,7 @@ bool BinaryTree::deleteNodeWithUserData(const UserData& pVal)
 bool BinaryTree::preOrderTranversal(TreeNode* pNode)const
 {
     if(pNode == nullptr) return true;
-    std::cout<<pNode->getData();
+    std::cout<<pNode->getData()<<std::endl;
     preOrderTranversal(pNode->mLeft);
     preOrderTranversal(pNode->mRight);
     return true;
@@ -166,12 +180,18 @@ void BinaryTree::generateTestData()const
 {
     UserData lData;
 
-    for (auto i = 0; i < 10000; i++){
-        auto lId = (rand())%20000;
+    for (auto i = 0; i < 10; i++){
+        auto lId = rand();
         lData.setId(lId);
         insertNodeWithUserData(lData, mRoot);
     }
 }
+
+void BinaryTree::tranverse()const
+{
+    preOrderTranversal(mRoot);
+}
+
 
 std::ostream& operator<<(std::ostream& pStream, BinaryTree& ptree)
 {
