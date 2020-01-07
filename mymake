@@ -1,4 +1,5 @@
 #!/bin/bash
-cmake -DCMAKE_C_COMPILER='/usr/bin/clang' -B build -S base 
-cd /Users/jasonj/github/codelab/build
-make CC='/usr/bin/clang'
+#cmake -DCMAKE_C_COMPILER='/usr/bin/gcc' -B build -S base 
+cmake -DCMAKE_C_COMPILER='/usr/bin/gcc' -B build -S base 
+cd /home/jasonj/work/github/codelab/build
+make 

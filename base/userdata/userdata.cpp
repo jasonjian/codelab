@@ -1,5 +1,6 @@
 #include<userdata.hpp>
 
+
 bool UserData::operator ==(const UserData& pData)const
 {
     return (pData.getId() == mId);

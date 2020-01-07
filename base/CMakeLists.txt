@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
-project(JasonLab VERSION 1.0)
+project(CodeLab VERSION 1.0)
 
-option(USE_CODELAG_ALGORITHM "use jason's own algorithm library")
+option(USE_CODELAB_ALGORITHM "use jason's own algorithm library")
+
 configure_file(CodeLabConfig.h.in CodeLabConfig.h)
 
 set (CMAKE_CXX_STANDARD 11)
@@ -24,8 +25,9 @@ add_subdirectory(datastruct)
 add_subdirectory(utils)
 
 add_executable(codelab main.cpp)
+
 target_link_libraries(codelab PUBLIC
-  ${REPO_DIR}/../build/datastruct/binarytree/libBinaryTree.dylib
+  ${REPO_DIR}/../build/datastruct/binarytree/libBinaryTree.so
   )
 
 target_include_directories(codelab PUBLIC
