@@ -13,15 +13,16 @@ bool UserData::operator !=(const UserData& pData)const
 
 bool UserData::operator <(const UserData& pData)const
 {
-    return (pData.getId() < mId);
+    if(mId < pData.getId()) {
+        return true;
+    }
+    return false;
 }
 
 
 bool UserData::operator > (const UserData& pData)const
 {
-    std::cout<<"pData = "<< pData;
-    std::cout<<"*this = "<< *this;
-    return !(pData < *this);
+    return !(*this < pData);
 }
 
 std::ostream& operator<<(std::ostream& pStream, const UserData& pData)

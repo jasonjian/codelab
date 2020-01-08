@@ -4,13 +4,13 @@
 class UserData{
 public:
     void setId(int pVal){mId = pVal;};
-    int getId()const{return mId;}
+    std::uint64_t getId()const{return mId;}
     bool operator ==(const UserData& pData)const;
     bool operator < (const UserData& pData)const;
     bool operator > (const UserData& pData)const;
     bool operator != (const UserData& pData)const;
 private:
-    int mId;
+    std::uint64_t mId;
 };
 
 std::ostream& operator<<(std::ostream& pStream, const UserData& pData);

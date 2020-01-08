@@ -26,10 +26,20 @@ public:
     bool preOrderTranversal(TreeNode* pNode)const;
     bool inOrderTranversal(TreeNode* pNode)const;
     bool postOrderTranversal(TreeNode* pNode)const;
+    bool releaseTreeNode(TreeNode* pCurrNode);
+
+public:
     bool isFullBinaryTree()const;
+    bool isBinarySearchTree()const;
+    bool isBalancedTree(TreeNode* pNode)const;
+
+    std::uint32_t getDepth(TreeNode* pNode)const;
+
+public:
     void generateTestData()const;
     void tranverse()const;
 
+    TreeNode* getRoot(){return mRoot;}
     friend std::ostream& operator<<(std::ostream& pStream, BinaryTree& ptree);
 
     BinaryTree();

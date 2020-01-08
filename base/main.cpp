@@ -16,7 +16,6 @@ void tranverse(T& pData)
     pData.tranverse();
 }
 
-
 int main ( int argc, char** argv )
 {
     (void)argc;
@@ -25,7 +24,7 @@ int main ( int argc, char** argv )
     BinaryTree lBinaryTree;
     generateTestData(lBinaryTree);
     tranverse(lBinaryTree);
-    std::cout<<lBinaryTree;
 
+    system("/home/jasonj/work/github/codelab/base/scripts/monitor.sh");
     return 0;
 }
