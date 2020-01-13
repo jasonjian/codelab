@@ -29,8 +29,8 @@ public:
     bool releaseTreeNode(TreeNode* pCurrNode);
 
 public:
-    bool isFullBinaryTree()const;
-    bool isBinarySearchTree()const;
+    bool isFullBinaryTree(TreeNode* pNode)const;
+    bool isBinarySearchTree(TreeNode* pNode)const;
     bool isBalancedTree(TreeNode* pNode)const;
 
     std::uint32_t getDepth(TreeNode* pNode)const;

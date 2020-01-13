@@ -210,15 +210,36 @@ std::uint32_t BinaryTree::getDepth(TreeNode* pNode)const
     return lDepth + 1;
 }
 
-bool BinaryTree::isFullBinaryTree()const
+bool BinaryTree::isFullBinaryTree(TreeNode* pNode)const
 {
     return true;
 }
 
-bool BinaryTree::isBinarySearchTree()const
+bool BinaryTree::isBinarySearchTree(TreeNode* pNode)const
 {
+    if(pNode == nullptr){
+        return true;
+    }
 
-    return true;
+    if((nullptr == pNode->mLeft) && (nullptr == pNode->mRight)){
+        return true;
+    }else if((nullptr == pNode->mLeft) && (nullptr != pNode->mRight)){
+        if((pNode->mRight->mData) > (pNode->mData)) {
+            return true;
+        }
+    }else if((nullptr != pNode->mLeft) && (nullptr == pNode->mRight)){
+        if(((pNode->mLeft->mData) < (pNode->mData)) &&
+            (isBinarySearchTree(pNode->mLeft))) {
+            return true;
+        }
+    }else if(( (pNode->mLeft->mData) < (pNode->mData)) &&
+             ((pNode->mRight->mData) > (pNode->mData))){
+        if((isBinarySearchTree(pNode->mLeft)) && (isBinarySearchTree(pNode->mRight))){
+            return true;
+        }
+    }
+
+    return false;
 }
 
 bool BinaryTree::isBalancedTree(TreeNode* pNode)const
@@ -233,11 +254,25 @@ bool BinaryTree::isBalancedTree(TreeNode* pNode)const
         return false;
     }
 
-    if( (false == isBalancedTree(pNode->mLeft)) || (false == isBalancedTree(pNode->mLeft))){
+    if( (false == isBalancedTree(pNode->mLeft)) || (false == isBalancedTree(pNode->mRight))){
         return false;
     }
 
     return true;
+}
+
+void BinaryTree::tranverse()const
+{
+    inOrderTranversal(mRoot);
+    std::cout<<"tree depth       = "<<getDepth(mRoot)<<std::endl;
+    std::cout<<"isBalanceTree     =  "<<isBalancedTree(mRoot)<<std::endl;
+    std::cout<<"isBinarySearchTree =  "<<isBinarySearchTree(mRoot)<<std::endl;
+}
+
+std::ostream& operator<<(std::ostream& pStream, BinaryTree& pTree)
+{
+    pTree.preOrderTranversal(pTree.getRoot());
+    return pStream;
 }
 
 // Why when this is not const after the member function, this project will failed to compile
@@ -245,22 +280,9 @@ void BinaryTree::generateTestData()const
 {
     UserData lData;
 
-    for (auto i = 0; i < 3; i++){
+    for (auto i = 0; i < 5; i++){
         auto lId = rand();
         lData.setId(lId);
         insertNodeWithUserData(lData, mRoot);
     }
-}
-
-void BinaryTree::tranverse()const
-{
-    inOrderTranversal(mRoot);
-    std::cout<<"tree depth = "<<getDepth(mRoot)<<std::endl;
-    std::cout<<"isBalanceTree =  "<<isBalancedTree(mRoot)<<std::endl;
-}
-
-std::ostream& operator<<(std::ostream& pStream, BinaryTree& pTree)
-{
-    pTree.preOrderTranversal(pTree.getRoot());
-    return pStream;
 }
