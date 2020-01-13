@@ -14,6 +14,7 @@ set("ALGORITHM_DIR" ${REPO_DIR}/algorithm)
 set("DATASTRUCT_DIR" ${REPO_DIR}/datastruct)
 set("USERDATA_DIR" ${REPO_DIR}/userdata)
 set("UTILS_DIR" ${REPO_DIR}/utils)
+set("CPPLAB_DIR" ${REPO_DIR}/cpplab)
 
 set(CMAKE_INSTALL_PREFIX ${REPO_DIR}/../install)
 
@@ -26,6 +27,7 @@ add_subdirectory(algorithm)
 add_subdirectory(userdata)
 add_subdirectory(datastruct)
 add_subdirectory(utils)
+add_subdirectory(cpplab)
 
 add_executable(codelab main.cpp)
 
