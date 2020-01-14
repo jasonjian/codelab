@@ -1,18 +1,22 @@
-class SharedCount{
+class SharedCount {
 public:
     long getCount() noexcept
     {
-        return 
+        return mCount;
     }
+
+    // prefer "--mCount" to "count--"";
     long decreaseCount() noexcept
     {
-
+        return --mCount;
     }
+
+    // only use mCount++ when you need use the originale value of mCount;
     long increaseCount() noexcept
     {
-
+        return ++mCount;
     }
 
-private:
+  private:
     long mCount;
 };
