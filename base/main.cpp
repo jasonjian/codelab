@@ -1,30 +1,18 @@
 #include <iostream>
 #include "CodeLabConfig.h"
 #include <binarytree/binarytree.hpp>
+#include <cpplab/smartptr/smartptr.hpp>
+#include "codelab.hpp"
 
 using namespace std;
 
-template<class T>
-void generateTestData(T& pData)
-{
-    pData.generateTestData();
-}
-
-template<class T>
-void tranverse(T& pData)
-{
-    pData.tranverse();
-}
 
 int main ( int argc, char** argv )
 {
     (void)argc;
     (void)argv;
+    SmartPtr<UserData> ptr;
+    test(ptr);
 
-    BinaryTree lBinaryTree;
-    generateTestData(lBinaryTree);
-    tranverse(lBinaryTree);
-
-    system("/home/jasonj/work/github/codelab/base/scripts/monitor.sh");
     return 0;
 }

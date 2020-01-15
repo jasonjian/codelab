@@ -1,3 +1,7 @@
 set (CPPLAB_SHAPE_LIB CppLabShape)
+
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} SOURCE_FILES)
+
 add_library(${CPPLAB_SHAPE_LIB} SHARED ${SOURCE_FILES})
+
+target_link_libraries(${CPPLAB_SHAPE_LIB} )
