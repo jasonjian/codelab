@@ -15,3 +15,9 @@ void test(Container<V> pData)
 {
     (void)pData;
 }
+
+template<class T>
+void test(T pData)
+{
+    (void)pData;
+}
