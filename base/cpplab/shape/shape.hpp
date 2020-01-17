@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-namespace codelab {
 namespace shape {
 
 class shape {
@@ -27,6 +26,6 @@ public:
   ~result() { puts("~result()"); }
 };
 
-} // namespace shape
+    void test();
 
-} // namespace codelab
+} // namespace shape

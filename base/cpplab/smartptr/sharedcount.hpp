@@ -1,3 +1,5 @@
+namespace smartptr
+{
 class SharedCount {
 public:
     long getCount() noexcept
@@ -20,3 +22,4 @@ public:
   private:
     long mCount;
 };
+}

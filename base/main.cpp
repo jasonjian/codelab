@@ -3,6 +3,7 @@
 #include <binarytree/binarytree.hpp>
 #include <cpplab/smartptr/smartptr.hpp>
 #include <cpplab/shape/shape.hpp>
+#include <gtest/gtest.h>
 #include "codelab.hpp"
 
 using namespace std;
@@ -10,13 +11,10 @@ using namespace std;
 
 int main ( int argc, char** argv )
 {
+    ::testing::InitGoogleTest(&argc, argv);
+    using namespace shape;
     (void)argc;
     (void)argv;
-    SmartPtr<UserData> ptr;
-    test(ptr);
-
-    ::codelab::shape::shape shape;
-    test(shape);
-
-    return 0;
+    test();
+    return RUN_ALL_TESTS();
 }
