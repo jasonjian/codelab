@@ -12,7 +12,7 @@ using namespace std;
 int main ( int argc, char** argv )
 {
     ::testing::InitGoogleTest(&argc, argv);
-    using namespace shape;
+    using namespace smartptr;
     (void)argc;
     (void)argv;
     test();

@@ -43,7 +43,7 @@ option(USE_CODELAB_ALGORITHM "use jason's own algorithm library")
 
 configure_file(CodeLabConfig.h.in CodeLabConfig.h)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -rdynamic -fvisibility=default")
 

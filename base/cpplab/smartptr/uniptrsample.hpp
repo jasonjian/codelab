@@ -6,7 +6,7 @@ namespace smartptr {
 class Investment
 {
 public:
-    virtual ~Investment();
+    virtual ~Investment(){};
 };
 
 class Stock : public Investment
@@ -36,7 +36,8 @@ auto delInvmt = [](Investment* invest) {
 };
 
 template <typename... Ts>
-std::unique_ptr<Investment> makeInvestment(Ts&&... params)
+auto makeInvestment(Ts&&... params)
+//std::unique_ptr<Investment> makeInvestment(Ts&&... params)
 {
     std::uint32_t test = 1;
     std::unique_ptr<Investment, decltype(delInvmt)> pInv(nullptr, delInvmt);
