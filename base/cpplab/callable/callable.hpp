@@ -1,4 +1,3 @@
-
-namespace callable {
+namespace callable{
 
 }
