@@ -2,30 +2,34 @@
 
 namespace shape {
 
-class shape {
+class shape
+{
 public:
-  virtual ~shape() {}
+    virtual ~shape() {}
 };
 
-class circle : public shape {
+class circle : public shape
+{
 public:
-  circle() { puts("circle()"); }
-  ~circle() { puts("~circle()"); }
+    circle() { puts("circle()"); }
+    ~circle() { puts("~circle()"); }
 };
 
-class triangle : public shape {
+class triangle : public shape
+{
 
 public:
-  triangle() { puts("triangle()"); }
-  ~triangle() { puts("~triangle()"); }
+    triangle() { puts("triangle()"); }
+    ~triangle() { puts("~triangle()"); }
 };
 
-class result {
+class result
+{
 public:
-  result() { puts("result()"); }
-  ~result() { puts("~result()"); }
+    result() { puts("result()"); }
+    ~result() { puts("~result()"); }
 };
 
-    void test();
+void test();
 
 } // namespace shape

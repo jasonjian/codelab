@@ -79,6 +79,7 @@ target_link_libraries(codelab PUBLIC
   BinaryTree
   SmartPtr
   Shape
+  TypeLab
   gtest
 #  ${REPO_DIR}/../build/datastruct/binarytree/libBinaryTree.so
   )
