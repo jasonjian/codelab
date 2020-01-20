@@ -4,6 +4,7 @@
 #include <cpplab/smartptr/smartptr.hpp>
 #include <cpplab/shape/shape.hpp>
 #include <cpplab/type/typelab.hpp>
+#include <cpplab/callable/callable.hpp>
 #include <gtest/gtest.h>
 #include "codelab.hpp"
 
@@ -13,7 +14,7 @@ using namespace std;
 int main ( int argc, char** argv )
 {
     //    ::testing::InitGoogleTest(&argc, argv);
-    using namespace typelab;
+    using namespace callable;
     (void)argc;
     (void)argv;
     test();
