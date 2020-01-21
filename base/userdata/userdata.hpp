@@ -9,6 +9,7 @@ public:
     bool operator < (const UserData& pData)const;
     bool operator > (const UserData& pData)const;
     bool operator != (const UserData& pData)const;
+
 private:
     std::uint64_t mId;
 };

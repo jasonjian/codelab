@@ -1,4 +1,6 @@
 #include <iostream>
+#include <utility>
+#include <functional>
 
 #pragma once
 namespace callable {
@@ -13,6 +15,15 @@ void foreach (Iter current, Iter end, Callable op)
     }
 }
 
+template <typename Iter, typename Callable, typename... Args>
+void foreach (Iter current, Iter end, Callable op, Args const... args)
+{
+    while(current != end){
+        std::invoke(op, args..., *current);
+        ++current;
+    }
+}
+
 void func(int i);
 
 // a function object type (for objects that can be used as functions):
@@ -22,6 +33,16 @@ public:
     void operator()(int i) const
     { // Note: const member function
         std::cout << "FuncObj::op() called for: " << i << '\n';
+    }
+};
+
+class MbrFuncObj
+{
+public:
+    void func(int i)
+    {
+        std::cout << "MbrFunc::func() called for: " << i << '\n';
+        return;
     }
 };
 

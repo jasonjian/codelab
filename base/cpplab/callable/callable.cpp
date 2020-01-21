@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-namespace callable{
+namespace callable {
 
 void test()
 {
@@ -26,5 +26,9 @@ void test()
                  std::cout << "lambda called for: " << i << '\n';
              })
         ;
+
+    MbrFuncObj obj;
+    auto func = std::bind<void>(&MbrFuncObj::func, obj, std::placeholders::_1);
+    foreach (primes.begin(), primes.end(), func) ;
 }
-} // namespace
+} // namespace callable

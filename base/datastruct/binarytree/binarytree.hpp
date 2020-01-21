@@ -1,13 +1,17 @@
 // construct a binary tree from a plaintxt
 //
 #include <userdata.hpp>
+#include <singleton.hpp>
 
 #pragma once
 
-class TreeNode{
+namespace BinaryTree {
+
+class TreeNode
+{
 
 public:
-    UserData& getData(){return mData;}
+    UserData& getData() { return mData; }
 
 public:
     TreeNode* mLeft;
@@ -16,41 +20,48 @@ public:
     UserData mData;
 };
 
-
-class BinaryTree {
+class BinaryTree
+{
+public:
+    static BinaryTree& instance() {
+        return singleton::Singleton<BinaryTree>::instance(); }
 
 public:
-    bool insertNodeWithUserData( UserData& pData, TreeNode* pCurrNode)const;
-    bool insertNodeWithUserDataRecursion( UserData& pData, TreeNode* pCurrNode);
+    bool insertNodeWithUserData(UserData& pData, TreeNode* pCurrNode) const;
+    bool insertNodeWithUserDataRecursion(UserData& pData, TreeNode* pCurrNode);
     bool deleteNodeWithUserData(const UserData& pVal);
-    bool preOrderTranversal(TreeNode* pNode)const;
-    bool inOrderTranversal(TreeNode* pNode)const;
-    bool postOrderTranversal(TreeNode* pNode)const;
+    bool preOrderTranversal(TreeNode* pNode) const;
+    bool inOrderTranversal(TreeNode* pNode) const;
+    bool postOrderTranversal(TreeNode* pNode) const;
     bool releaseTreeNode(TreeNode* pCurrNode);
 
 public:
-    bool isFullBinaryTree(TreeNode* pNode)const;
-    bool isBinarySearchTree(TreeNode* pNode)const;
-    bool isBalancedTree(TreeNode* pNode)const;
+    bool isFullBinaryTree(TreeNode* pNode) const;
+    bool isBinarySearchTree(TreeNode* pNode) const;
+    bool isBalancedTree(TreeNode* pNode) const;
 
-    std::uint32_t getDepth(TreeNode* pNode)const;
+    std::uint32_t getDepth(TreeNode* pNode) const;
 
 public:
-    void generateTestData()const;
-    void tranverse()const;
+    void generateTestData() const;
+    void tranverse() const;
 
-    TreeNode* getRoot(){return mRoot;}
+    TreeNode* getRoot() { return mRoot; }
     friend std::ostream& operator<<(std::ostream& pStream, BinaryTree& ptree);
 
     BinaryTree();
     ~BinaryTree();
-    
+
 private:
-    BinaryTree(BinaryTree& pVal) = delete;
-    BinaryTree(const BinaryTree& pVal) = delete;
+    BinaryTree(BinaryTree& pVal)        = delete;
+    BinaryTree(const BinaryTree& pVal)  = delete;
     BinaryTree(const BinaryTree&& pVal) = delete;
-    BinaryTree operator=(const BinaryTree& pVal);
+    BinaryTree operator                 =(const BinaryTree& pVal);
 
 private:
     TreeNode* mRoot;
 };
+
+void test();
+
+} // namespace BinaryTree

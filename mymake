@@ -1,5 +1,8 @@
 #!/bin/bash
 #cmake -DCMAKE_C_COMPILER='/usr/bin/gcc' -B build -S base
-cmake -DCMAKE_C_COMPILER='/usr/bin/clang'  -Dgtest_build_samples=ON -B build -S base
+
+# cmake -DCMAKE_C_COMPILER='/usr/bin/clang'  -DCMAKE_CXX_COMPILER='/usr/bin/clang++' -Dgtest_build_samples=ON -B build -S base
+cmake -Dgtest_build_samples=ON -B build -S base
 cd /Users/jasonj/github/codelab/build
+
 make

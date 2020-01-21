@@ -43,9 +43,18 @@ option(USE_CODELAB_ALGORITHM "use jason's own algorithm library")
 
 configure_file(CodeLabConfig.h.in CodeLabConfig.h)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -rdynamic -fvisibility=default")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+set(CMAKE_C_COMPILER "/usr/bin/clang")
+set(CMAKE_BUILD_TYPE Debug)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  message("We use apple clang as our c++ compiler")
+endif()
+
 
 set("REPO_DIR" ${CMAKE_CURRENT_SOURCE_DIR})
 set("ALGORITHM_DIR" ${REPO_DIR}/algorithm)
@@ -63,13 +72,13 @@ include_directories(${USERDATA_DIR})
 include_directories(${UTILS_DIR})
 include_directories(${GTEST_DIR})
 
-
 add_subdirectory(algorithm)
 add_subdirectory(userdata)
 add_subdirectory(datastruct)
 add_subdirectory(utils)
 add_subdirectory(cpplab)
 add_subdirectory(googletest)
+add_subdirectory(scripts)
 
 add_executable(codelab main.cpp)
 
@@ -81,9 +90,8 @@ target_link_libraries(codelab PUBLIC
   Shape
   TypeLab
   Callable
+  TextPlayer
   gtest
-
-#  ${REPO_DIR}/../build/datastruct/binarytree/libBinaryTree.so
   )
 
 target_include_directories(codelab PUBLIC

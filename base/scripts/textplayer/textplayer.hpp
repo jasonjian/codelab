@@ -1,0 +1,3 @@
+namespace TextPlayer {
+    void test();
+}
