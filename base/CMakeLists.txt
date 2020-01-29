@@ -1,4 +1,3 @@
-# Download and unpack googletest at configure time
 #configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 #execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
 #  RESULT_VARIABLE result
@@ -47,9 +46,9 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
-set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
-set(CMAKE_C_COMPILER "/usr/bin/clang")
-set(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
+#set(CMAKE_C_COMPILER "/usr/bin/clang")
+#set(CMAKE_BUILD_TYPE Debug)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   message("We use apple clang as our c++ compiler")
@@ -91,6 +90,8 @@ target_link_libraries(codelab PUBLIC
   TypeLab
   Callable
   TextPlayer
+  Practice
+  Greedy
   gtest
   )
 

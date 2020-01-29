@@ -5,4 +5,4 @@
 cmake -Dgtest_build_samples=ON -B build -S base
 cd /Users/jasonj/github/codelab/build
 
-make
+make install
