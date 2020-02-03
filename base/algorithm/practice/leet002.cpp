@@ -1,36 +1,19 @@
+#include "leet002.hpp"
 #include <cstdlib>
 #include <iostream>
-#pragma once
 
 namespace leet002 {
 
-struct ListNode
+ListNode* Solution::addTwoNumbers()
 {
-    int val;
-    ListNode* next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
-
-ListNode* L1;
-ListNode* L2;
-
-class Solution
-{
-public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);
-};
-
-ListNode* Solution::addTwoNumbers(ListNode* l1, ListNode* l2)
-{
-    (void)l1;
-    (void)l2;
-
     ListNode* lNode;
     return lNode;
 }
 
-void generateTestData()
+Solution::Solution()
 {
+    L1 = new ListNode(0);
+    L2 = new ListNode(0);
     ListNode* L1Curr = L1;
     ListNode* L2Curr = L2;
 
@@ -55,27 +38,25 @@ void generateTestData()
     return;
 }
 
-void print(ListNode* List)
+Solution::~Solution() {}
+
+
+std::ostream& operator<<(std::ostream& os, ListNode* node)
 {
-    auto curr = List;
-    while (curr)
-    {
-        std::cout << "val = " << curr->val << std::endl;
-        curr = List->next;
+    ListNode* tmpnode = node;
+    while(tmpnode->next){
+        os<<"val = "<< node->next->val<< std::endl;
+        tmpnode = tmpnode->next;
     }
+
+    return os;
 }
 
 void test()
 {
-    std::cout<<"line = " << __LINE__;
-    generateTestData();
-    std::cout<<"line = " << __LINE__;
-    Solution lSolution;
-    std::cout<<"line = " << __LINE__;
-    auto res = lSolution.addTwoNumbers(L1, L2);
-    std::cout<<"line = " << __LINE__;
-    print(res);
-    std::cout<<"line = " << __LINE__;
+    Solution solution;
+    auto res = solution.addTwoNumbers();
+    std::cout<<"result = "<< res;
 }
 
 } // namespace leet002
